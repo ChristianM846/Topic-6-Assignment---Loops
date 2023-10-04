@@ -14,7 +14,7 @@
                 Console.WriteLine("Please select one of the demos:");
                 Console.WriteLine();
                 Console.WriteLine("1 - Prompter");
-                Console.WriteLine("2 - Menu Option 2");
+                Console.WriteLine("2 - PercentPassing");
                 Console.WriteLine("3 - Menu Option x");
                 Console.WriteLine("Q - Quit");
                 Console.WriteLine();
