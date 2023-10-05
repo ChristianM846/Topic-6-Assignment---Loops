@@ -83,6 +83,12 @@
 
             while (!done)
             {
+                Console.WriteLine("Give me a percentile grade between 0 and 100. (Don't include the %)");
+
+                while(!Int32.TryParse(Console.ReadLine(), out grade) || grade > 100 || grade < 0)
+                {
+
+                }
 
             }
         }
