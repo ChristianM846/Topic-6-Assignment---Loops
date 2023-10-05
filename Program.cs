@@ -23,30 +23,70 @@
 
                 if (choice == "1")
                 {
-                    Console.WriteLine("You the Prompter demo");
+                    Console.WriteLine("You chose the Prompter demo");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
                     Prompter();
                 }
                 else if (choice == "2")
                 {
-                    Console.WriteLine("You chose option 2");
+                    Console.WriteLine("You chose the PercentPassing demo");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
+                    PercentPassing();
                 }
                 
                 else
                 {
-                    Console.WriteLine("Invalid choice, press ENTER to continue.");
+                    Console.WriteLine("Invalid choice, press ENTER to try again.");
                     Console.ReadLine();
                 }
             }
         }
 
-        static void Prompter()
+        public static void Prompter()
         {
+            int max, min, number;
+            Console.WriteLine("Welcome to the Prompter demo!");
+            Console.WriteLine("Please input a minimum numeric integer value");
 
+            while (!Int32.TryParse(Console.ReadLine(), out min))
+            {
+                Console.WriteLine("That is not a valid input, please try again:");
+            }
+
+            Console.WriteLine("Now give me a maximum integer value");
+
+            while (!Int32.TryParse(Console.ReadLine(), out max) || max <= min)
+            {
+                Console.WriteLine("That is not a valid input, please try again:");
+            }
+
+            Console.WriteLine($"Now, input a number between those two values {min} and {max}");
+
+            while (!Int32.TryParse(Console.ReadLine(), out number) || number < min || number > max)
+            {
+                Console.WriteLine("That is not a valid input. Make sure you input a whole number between the maximum and the minimum values");
+            }
+
+            Console.WriteLine($"The number you chose between {min} and {max} was {number}. Thank you for trying this demo.");
+            Console.WriteLine("Press ENTER to close this demo");
+            Console.ReadLine();
         }
+
+        public static void PercentPassing()
+        {
+            int grade, below70, above70, gradeNum;
+            bool done = false;
+            Console.WriteLine("Welcome to the PercentPassing demo!");
+            Console.WriteLine("Give me some percentile grades, and I'll tell you what percent of them are equal to or above 70");
+
+            while (!done)
+            {
+
+            }
+        }
+
 
     }
 }
