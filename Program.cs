@@ -154,7 +154,7 @@
 
         public static void OddSum()
         {
-
+            Console.WriteLine("Welcome to the OddSum demo");
         }
     }
 }
