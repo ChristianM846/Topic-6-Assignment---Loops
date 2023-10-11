@@ -16,6 +16,7 @@
                 Console.WriteLine("1 - Prompter");
                 Console.WriteLine("2 - PercentPassing");
                 Console.WriteLine("3 - OddSum");
+                Console.WriteLine("4 - Random Numbers");
                 Console.WriteLine("Q - Quit");
                 Console.WriteLine();
                 choice = Console.ReadLine().ToLower().Trim();
@@ -41,6 +42,13 @@
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
                     OddSum();
+                }
+                else if (choice == "4")
+                {
+                    Console.WriteLine("You chose the Random Numbers demo");
+                    Console.WriteLine("Hit ENTER to continue.");
+                    Console.ReadLine();
+                    RandomNumbers();
                 }
                 else if (choice == "q")
                 {
@@ -154,7 +162,66 @@
 
         public static void OddSum()
         {
+            int chooseNum, total;
+            total = 0;
+
             Console.WriteLine("Welcome to the OddSum demo");
+            Console.WriteLine("Please enter a whole, positive number and I will collect the sum of the odd numbers between one and that number");
+
+            while (!Int32.TryParse(Console.ReadLine(), out chooseNum) || chooseNum < 1)
+            {
+                Console.WriteLine("I'm sorry, that is not a valid number. Please ensure your number is whole and at least 1");
+            }
+
+            Console.WriteLine($"Okay, now I'll add all odd numbers from one to {chooseNum}");
+
+            for (int currentNum = 1; currentNum <= chooseNum; currentNum += 2)
+            {
+                total += currentNum;
+                Console.WriteLine(total);
+                
+            }
+
+            Console.WriteLine($"The sum of the numbers between 1 and {chooseNum} is {total}");
+            Console.WriteLine("Press ENTER to exit this demo");
+            Console.ReadLine();
         }
+
+        public static void RandomNumbers()
+        {
+            int min, max, number;
+            Random generator = new Random();
+
+
+            Console.WriteLine("Welcome to the Random Numbers demo");
+            Console.WriteLine("You will give me a minimum and maximum value, and I will generate 25 random numbers between them.");
+            Console.WriteLine("First, give me your desired minimum value:");
+
+            while (!Int32.TryParse(Console.ReadLine(), out min))
+            {
+                Console.WriteLine("I'm sorry, that's not a valid input. Please ensure your desired minimum is a whole number");
+            }
+
+            Console.WriteLine($"Okay, your minimum value is {min}, now give me your desired maximum value:");
+
+            while (!Int32.TryParse(Console.ReadLine(), out max) || max < min)
+            {
+                Console.WriteLine($"Sorry, that's not a valid input. Please ensure your maximum is a whole number that is greater than or equal to your minimum of {min}:");
+            }
+
+            Console.WriteLine($"Okay, I will generate 25 random numbers between {min} an {max}");
+
+            for (int i = 1; i <= 25; i++)
+            {
+                number = generator.Next(min, max + 1);
+                Console.WriteLine(number);
+                Thread.Sleep(250);
+            }
+
+            Console.WriteLine("Thank you using the Random Numbers demo.");
+            Console.WriteLine("Press ENTER to exit this demo");
+            Console.ReadLine();
+        }
+
     }
 }
